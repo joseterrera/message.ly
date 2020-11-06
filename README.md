@@ -1,0 +1,1 @@
+Message.ly is a user-to-user private messaging app using common patterns around authentication and authorization.
