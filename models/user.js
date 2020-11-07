@@ -144,7 +144,30 @@ class User {
    *   {id, first_name, last_name, phone}
    */
 
-  static async messagesTo(username) { }
+  static async messagesTo(username) {
+    const result = awai db.query(
+      `SELECT m.id,
+              m.from_username,
+              u.first_name,
+              u.last_name,
+              u.phone,
+              m.body,
+              m.sent_at,
+              m.read_at
+        FROM messages AS m
+        JOIN users AS u ON m.from_username = u.username
+        WHERE to_username = $1`, 
+      [username]);
+  
+    return result.rows.map(m => ({
+      id: m.id,
+      from_user: {
+        username: m.from_username,
+        first_name: m.first_name,
+        
+      }
+    }))
+   }
 }
 
 
