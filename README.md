@@ -3,9 +3,12 @@ Message.ly is a user-to-user private messaging app using common patterns around 
 
 Setting up:
 CREATE DATABASE messagely;
-\c messagely
-paste the contents of data.sql or type `
-\i data.sql`
+exit and then type
+psql messagely < data.sql
+
+npm install 
+nodemon server.js
+
 
 check to see all tables are in database: `\d`
 check to see that there are some columns in the tables `\d messages`
