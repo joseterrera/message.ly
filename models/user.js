@@ -164,9 +164,13 @@ class User {
       from_user: {
         username: m.from_username,
         first_name: m.first_name,
-        
-      }
-    }))
+        last_name: m.last_name,
+        phone: m.phone,
+      },
+      body: m.body,
+      sent_at: m.sent_at,
+      read_at: m.read_at
+    }));
    }
 }
 
