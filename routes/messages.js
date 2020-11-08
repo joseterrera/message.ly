@@ -70,7 +70,7 @@ router.post("/", ensureLoggedIn, async function(req, res, next) {
        throw new ExpresError("Cannot set this message to read", 401)
      }
      let message = await Message.markRead(req.params.id);
-     return res.json({messge});
+     return res.json({message});
    }
    catch(err) {
      return next(err);
