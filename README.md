@@ -1,17 +1,36 @@
-Message.ly is a user-to-user private messaging app using common patterns around authentication and authorization.
+### Message.ly 
+This is a user-to-user private messaging app using common patterns around authentication and authorization.
 
+### Setting up:
+1. On the terminal type psql and then `CREATE DATABASE messagely`;
+2. Exit and then type `psql messagely < data.sql` to import the tables
+3. Add an env file and paste secret key : SECRET_KEY = abc123
+4. Run `npm install` 
+5. Run `nodemon server.js`
+6. To run tests `npm run tests`
 
-Setting up:
-CREATE DATABASE messagely;
-exit and then type
-psql messagely < data.sql
+Some useful commands: 
 
-npm install 
-nodemon server.js
+* check to see all tables are in database: `\d`
+* check to see that there are some columns in the tables `\d messages`
 
+To check the different routes on insomnia, refer to the tests that show how it should look like. Here is one example: 
 
-check to see all tables are in database: `\d`
-check to see that there are some columns in the tables `\d messages`
-add an env file and paste secret key : SECRET_KEY = abc123
+POST http://localhost:3000/auth/register
 
-
+With this input:
+```json
+{
+"username": "test2",
+"password": "test",
+"first_name": "Test",
+"last_name": "Testerson",
+"phone": "555-555-5555"
+}
+```
+As an output you should get a token
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiaWF0IjoxNjA0ODEwMjY5fQ.U9ocxRLWLcVwOkN7rTp7TRvPtq0ihTlwb6_v02pLvRk"
+}
+```
