@@ -145,7 +145,7 @@ class User {
    */
 
   static async messagesTo(username) {
-    const result = awai db.query(
+    const result = await db.query(
       `SELECT m.id,
               m.from_username,
               u.first_name,

@@ -1,3 +1,10 @@
+const Router = require("express").Router;
+const router = new Router();
+
+const Message = require("../models/message");
+const { ensureLoggedIn } = require("../middleware/auth");
+const ExpresError = require("../expressError");
+
 /** GET /:id - get detail of message.
  *
  * => {message: {id,
@@ -10,6 +17,14 @@
  * Make sure that the currently-logged-in users is either the to or from user.
  *
  **/
+router.get(":/id", ensureLoggedIn, async function(req, res, next) {
+  try {
+    let username = req.user.username;
+    let msg 
+  } catch (err){
+    return next(err);
+  }
+})
 
 
 /** POST / - post message.
