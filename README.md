@@ -13,6 +13,7 @@ This is a user-to-user private messaging app using common patterns around authen
   c. \c messagely_test  
   d. \i data.sql  
   e.`npm run tests`
+  (`jest -i` the -i parameter so the tests run in band, so there are no conflicts between asynchronous tests which communicate with the database (if they were to run at the same time) - https://jestjs.io/docs/en/cli#--runinband )
 
 Some useful commands: 
 
