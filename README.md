@@ -2,12 +2,17 @@
 This is a user-to-user private messaging app using common patterns around authentication and authorization.
 
 ### Setting up:
-1. On the terminal type psql and then `CREATE DATABASE messagely`;
+1. On the terminal type psql and then `CREATE DATABASE messagely;`
 2. Exit and then type `psql messagely < data.sql` to import the tables
 3. Add an env file and paste secret key : SECRET_KEY = abc123
 4. Run `npm install` 
 5. Run `nodemon server.js`
-6. To run tests `npm run tests`
+6. To run tests:  
+  a. psql   
+  b. `createdb messagely_test`  
+  c. \c messagely_test  
+  d. \i data.sql  
+  e.`npm run tests`
 
 Some useful commands: 
 
@@ -28,7 +33,7 @@ With this input:
 "phone": "555-555-5555"
 }
 ```
-As an output you should get a token
+As an output you should get a token that shows the server has been authenticated
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiaWF0IjoxNjA0ODEwMjY5fQ.U9ocxRLWLcVwOkN7rTp7TRvPtq0ihTlwb6_v02pLvRk"
